@@ -10,11 +10,14 @@ import phone_auth
 # - login.py - account_login() -> calls phone_auth.py - text_code(phone_number)
 # - login.py - two_factor_check()
 # - todolist.jar 
+# - Chatbot_conversation -> word_cleanup -> utilities -> file_editor
 # - ...
 
 # account.py functions are called individually
 # login.py functions must be called individually
 # phone_auth.py functions must be called individually
+# Chatbot_conversation.py functions are called via user input to terminal
+# Todolist.jar reads commands.txt to execute functions
 
 ################################################## 
 
@@ -55,9 +58,8 @@ subprocess.call(['java', '-jar', 'todolist.jar'])
 # TODO 
 # initialize python calls for chatbot here
 # @ lily
-
-
-
+import Chatbot_conversation as chatbot
+chatbot.conversation()
 
 
 #################################################
