@@ -4,14 +4,14 @@ from nltk.stem import WordNetLemmatizer
 
 specialChars = """'~:+[\@^{%(-"*|,&<`}._=]!>;?#$)/"""
 
-def clean(str):
+def clean(str) -> str:
     returnString = ""
     for i in range(len(str)):
         if(str[i] not in specialChars):
             returnString += str[i]
     return returnString 
 
-def stemlem(str) :
+def stemlem(str) -> list :
     #Stemmatization
     tokens = word_tokenize(str)
     ##python -m nltk.downloader all
@@ -24,14 +24,17 @@ def stemlem(str) :
     for t,s in tokens:
         #v = verb, j = adjective, r = adverb
         if(s.startswith('V') or s.startswith('R') or s.startswith('J')) :
-            lem_tokens.append(lem_tool.lemmatize(t,pos=s[0].lower()))
+            try :
+                lem_tokens.append(lem_tool.lemmatize(t,pos=s[0].lower()))
+            except :
+                lem_tokens.append(t)
         else :
             lem_tokens.append(t)
     return lem_tokens
 
-def askCleanString(str) :
+def askCleanString(str: str) -> list:
     ##nltk.download('punkt')
     str = clean(str)
-    str = stemlem(str)
-    print("Your cleaned reply is",str)
-    return str
+    li = stemlem(str)
+    print("Your cleaned reply is",li)
+    return li

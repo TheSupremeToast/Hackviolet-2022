@@ -25,7 +25,7 @@ r"[Ff]ri(day)?",
 r"[Ss][(AT)(at)](urday)?",
 r"[Ss][(UN)(un)](day)?"]
 
-def parseDate(arr):
+def parseDate(arr: list) -> datetime.datetime:
     now = datetime.datetime.now()
     year = now.year
     month = now.month

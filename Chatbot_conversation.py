@@ -1,24 +1,5 @@
 import Chatbot_word_cleanup as cleanup
-from nltk.chat.util import Chat, reflections
 import re, random
-
-""" reflections = {
-  "i am"       : "you are",
-  "i was"      : "you were",
-  "i"          : "you",
-  "i'm"        : "you are",
-  "i'd"        : "you would",
-  "i've"       : "you have",
-  "i'll"       : "you will",
-  "my"         : "your",
-  "you are"    : "I am",
-  "you were"   : "I was",
-  "you've"     : "I have",
-  "you'll"     : "I will",
-  "your"       : "my",
-  "yours"      : "mine",
-  "you"        : "me",
-  "me"         : "you" """
 
 ##each pair is an array of [x,y] where 
 ##x is an array of keywords to trigger action,
@@ -26,7 +7,7 @@ import re, random
 ##r for regular expression
 pairs =[
     [
-        r".*new task.*|.*add.*sub(task)?.*",
+        r".*subtask.*",
         ["What number task should this new subtask fall under?",
         "This new subtask should go under what task number?"]
     ],
@@ -38,7 +19,7 @@ pairs =[
     ],
     [
         r".*search.*until.*|.*get.*until.*",
-        ["Get tasks until what date?"]
+        ["Get tasks until what date and time?"]
     ],
     [
         r".*search.*|.*get.*",
@@ -54,11 +35,11 @@ pairs =[
     [
         r".*list.*|.*due.*|.*TODO list.*",
         ["Here's your TODO list!",
-        "What's due today?"]
+        "What's due on your list?"]
     ],
     [
-        r".*tasks?|.*options?|.*choices?",
-        ["Would you like to add a task, search for a task, or list all your tasks?"]
+        r".*tasks?.*|.*options?.*|.*choices?.*|.*help.*",
+        ["You can:\nadd task\t\tadd subtask\nsearch task by name\tsearch task by date\nview stats\t\tlist tasks"]
     ]
 ]
 
