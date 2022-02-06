@@ -20,8 +20,16 @@
 ---  
 
 ## TODO List Features:  
-1)  
-
+| Command | Description |  
+| ----------- | ----------- |  
+| Add | add a task |  
+| Add subtask | add a subtask under task number |  
+| Remove | remove task by number |  
+| search by name | Search tasks by name, return the task number |  
+| Search by date | Search tasks by date |  
+| Get until | Gets tasks until a certain date |  
+| Stats | get number of tasks in list |  
+| List | get print out of tasks |  
 
 ---
 
