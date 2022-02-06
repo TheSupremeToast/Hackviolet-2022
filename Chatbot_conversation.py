@@ -26,33 +26,38 @@ import re, random
 ##r for regular expression
 pairs =[
     [
-        r"add.*",
+        r".*new task.*|.*add.*sub(task)?.*",
+        ["What number task should this new subtask fall under?",
+        "This new subtask should go under what task number?"]
+    ],
+    [
+        r".*add.*",
         ["What task should I add to your TODO list?",
         "I'm ready! Let's add a task to your TODO list.",
         "What task am I adding?"]
     ],
     [
-        r"search.*until.*|get.*until.*",
+        r".*search.*until.*|.*get.*until.*",
         ["Get tasks until what date?"]
     ],
     [
-        r"search.*|get.*",
+        r".*search.*|.*get.*",
         ["What would you like to search today?",
         "I can help with that! What would you like to search?",
         "Let me help you find what you're looking for!",
         "Type some key words so I know what to search!"]  
     ],
     [
-        r"count.*|stats.*|statistics.*",
+        r".*count.*|.*stats.*|.*statistics.*",
         ["Sure! Let's see some statistics about your tasks."]
     ],
     [
-        r"list.*|due.*|TODO list.*",
+        r".*list.*|.*due.*|.*TODO list.*",
         ["Here's your TODO list!",
         "What's due today?"]
     ],
     [
-        r"tasks?|options?|choices?",
+        r".*tasks?|.*options?|.*choices?",
         ["Would you like to add a task, search for a task, or list all your tasks?"]
     ]
 ]

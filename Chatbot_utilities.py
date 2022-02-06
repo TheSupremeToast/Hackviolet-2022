@@ -2,13 +2,6 @@
 import re
 import datetime
 
-now = datetime.datetime.now()
-year = now.year
-month = now.month
-day = now.day
-hr = now.hour
-min = now.min
-
 months = [
     r"[Jj]an(uary)?",
     r"[Ff]eb(ruary)?",
@@ -33,22 +26,30 @@ r"[Ss][(AT)(at)](urday)?",
 r"[Ss][(UN)(un)](day)?"]
 
 def parseDate(arr):
+    now = datetime.datetime.now()
+    year = now.year
+    month = now.month
+    day = now.day
+    hr = now.hour
+    min = now.min
+
     for element in arr :
         #time
         if(re.match(r"\d{2}:\d{2}", element)):
-            hr = element[0,2]
-            min = element[3,5]
+            hr = int(element[0:2])
+            min = int(element[3:5])
         #year
         elif(re.match(r"\d{4}",element)):
             year = int(element)
         #day
-        elif(type(element) == type(int) and int(element) >= 1 and int(element) <= 31):
+        elif(element.isnumeric() and int(element) >= 1 and int(element) <= 31):
             day = int(element)
         else:
         #month
             for m in months :
                 if(re.match(m, element)):
-                    month = months.index(m)
+                    month = months.index(m) + 1
+
         #weekday, assuming next week (exclusive on today)
             {"""
             today is day 0, monday = 0
@@ -72,7 +73,7 @@ def parseDate(arr):
                     else :
                         day += delta_day
 
-    return datetime(year, month, day, hr, min, 0, 0)
+    return datetime.datetime(year, month, day, hr, min, 0, 0)
 
 x = input("enter date time: ")
-print(parseDate(x).isoformat())
+print(parseDate(x.split()).isoformat(" "))
