@@ -30,6 +30,7 @@
 2)  User input cleanup using nltk stemming and lemmatization
 3)  Robust natural language processing with regex
 4)  Versatile date and time parsing
+5)  Uses Outwriter class to log decisions as commands to a txt file for TODO List to execute
 
 ---  
 ## Usage Instructions:  
