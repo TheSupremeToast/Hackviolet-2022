@@ -8,9 +8,11 @@ import hashlib
 import login
 
 # import twilio for phone authentication
+# NOTE: you must install twilio (pip3 install twilio)
 from twilio.rest import Client
 
 # import dotenv to load environment variables
+# NOTE: you must install dotenv (pip install dotenv)
 from dotenv import load_dotenv
 load_dotenv()
 

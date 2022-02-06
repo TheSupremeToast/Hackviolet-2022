@@ -9,7 +9,8 @@ import phone_auth
 # - account.py - create_account()
 # - login.py - account_login() -> calls phone_auth.py - text_code(phone_number)
 # - login.py - two_factor_check()
-# - ... ? ... 
+# - todolist.jar 
+# - ...
 
 # account.py functions are called individually
 # login.py functions must be called individually
@@ -36,15 +37,12 @@ print('\n')
 #################################################
 
 #
-# Run jar files to initialize todo list
+# Run jar file to initialize todo list
 #
 
-#TODO
-# do java stuff here
-# @james
+# call todolist.jar
+# NOTE: java must be installed
 subprocess.call(['java', '-jar', 'todolist.jar'])
-
-
 
 # TODO - somewhere around here encrypt json from java
 
