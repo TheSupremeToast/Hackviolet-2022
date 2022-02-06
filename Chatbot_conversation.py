@@ -1,12 +1,15 @@
+#Since Chatbot_conversation.py is the main driver (see init.py for more), 
+#the other related files are imported here and executed as one
 import Chatbot_word_cleanup as cleanup
 import Chatbot_utilities as util
 import Chatbot_file_editor as io
 import re, random
 
-##each pair is an array of [x,y] where 
-##x is an array of keywords to trigger action,
-##y is an array of responses
-##r for regular expression
+#Dialogue
+#each pair is an array of [x,y] where 
+#x is an array of keywords to trigger action,
+#y is an array of responses
+#r for regular expression
 pairs =[
     [
         r".*subtask.*",
@@ -54,7 +57,7 @@ pairs =[
     ],
     [
         r".*tasks?.*|.*options?.*|.*choices?.*|.*help.*",
-        ["You can:\nadd task\t\tadd subtask\nsearch task by name\tsearch task by date\nview stats\t\tlist tasks"]
+        ["You can:\nadd task\nadd subtask\nremove task\nsearch task by name\nsearch task by date\nview stats\nlist tasks"]
     ]
 ]
 
@@ -91,11 +94,13 @@ def decideAction(i: int):
         ret_string = "ERROR: Could not determine action."
     callOutWriter(ret_string+"\n")
 
+#Initializes Outwriter object from Chatbot_file_editor.py and updates commands.txt
 def callOutWriter(str: str):
     writer = io.Outwriter("commands.txt")
     writer.writeToFile(str)
     writer.closeFile()
 
+#Converts a list of lemmatized keywords to a single string for regex
 def arrToString(arr):
     ret_string = ""
     for a in arr:
@@ -125,7 +130,3 @@ def conversation(quit="quit"):
         print(chatline)
         decideAction(act)
         conversation()
-    
-
-#execute bot
-conversation()
