@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="out/artifacts/TodoList_jar/TodoList.jar"/>
+	<classpathentry kind="lib" path="out/artifacts/TodoList_jar2/TodoList.jar"/>
+	<classpathentry kind="lib" path="out/artifacts/TodoList3/TodoList.jar"/>
+	<classpathentry kind="output" path="out/artifacts/TodoList_jar/TodoList"/>
+</classpath>
