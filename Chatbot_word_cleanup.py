@@ -20,13 +20,13 @@ def stemlem(str) :
 
     #Lemmatization
     lem_tool = WordNetLemmatizer() 
-    lem_tokens = ""
+    lem_tokens = []
     for t,s in tokens:
         #v = verb, j = adjective, r = adverb
         if(s.startswith('V') or s.startswith('R') or s.startswith('J')) :
-            lem_tokens += lem_tool.lemmatize(t,pos=s[0].lower())
+            lem_tokens.append(lem_tool.lemmatize(t,pos=s[0].lower()))
         else :
-            lem_tokens += t
+            lem_tokens.append(t)
     return lem_tokens
 
 def askCleanString(str) :

@@ -57,6 +57,12 @@ pairs =[
     ]
 ]
 
+def arrToString(arr):
+    ret_string = ""
+    for a in arr:
+        ret_string += a
+    return ret_string
+
 #override respond function in nltk to take in array of keywords
 def reply(str):
         # check each pattern
@@ -72,7 +78,10 @@ def reply(str):
 def conversation(quit="quit"):
     user_input = input("Type quit to exit ")
     if(user_input != quit) :
-        print(reply(cleanup.askCleanString(user_input)))
+        arr = cleanup.askCleanString(user_input)
+        s = arrToString(arr)
+        print(reply(s))
         conversation()
 
+#execute bot
 conversation()
