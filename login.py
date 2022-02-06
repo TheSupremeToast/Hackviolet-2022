@@ -1,6 +1,8 @@
 import json
 import hashlib
 import getpass
+import phone_auth
+
 
 #
 # login to account
@@ -20,16 +22,15 @@ def account_login():
             pswd = getpass.getpass('Enter your password: ')
             pswd_encoded = hashlib.sha256(pswd.encode()).hexdigest()
             if pswd_encoded == users['users'][i]['password']:
-                print('Success!')
-                flag = True
-                return users['users'][i]['phone']
+                # get user phone number and send the 2 factor code
+                phone = users['users'][i]['phone']
+                phone_auth.text_code(phone)
+
             else:
                 print('Incorrect Password.')
         i = i + 1 
-    return flag 
+    return 12
 
-# run function, for testing purposes only
-# account_login()
 
 #
 # 2 factor login check
@@ -38,7 +39,7 @@ def two_factor_check():
     with open('temp.txt') as file:
         code = file.read()
 
-    auth_input = getpass.getpass('Enter your verification code: ')
+    auth_input = input('Enter your verification code: ')
     encoded = hashlib.sha256(auth_input.encode()).hexdigest()
 
     if encoded == code:
