@@ -35,7 +35,7 @@ public class Task
         sb.append("\"" + name + "\"");
         sb.append(",\n\t");
         sb.append("\"taskDate\" : ");
-        sb.append("\"" + date + "\"");
+        sb.append("\"" + date.getYear() + " " + date.getMonth() + " " + date.getDate() + "\"");
         for (int i = 0; i < subtasks.size(); i++)
         {
             sb.append(",\n\t");
