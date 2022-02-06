@@ -1,0 +1,6 @@
+create task taskName3 2022-03-09 07:07:00
+create subtask 1
+delete task 1
+stats
+display list
+ERROR: Could not determine action.

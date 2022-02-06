@@ -35,9 +35,10 @@ def parseDate(arr: list) -> datetime.datetime:
 
     for element in arr :
         #time
-        if(re.match(r"\d{2}:\d{2}", element)):
-            hr = int(element[0:2])
-            min = int(element[3:5])
+        if(re.match(r"\d{1,2}:\d{2}", element)):
+            idx = element.find(":")
+            hr = int(element[0:idx])
+            min = int(element[idx+1:])
         #year
         elif(re.match(r"\d{4}",element)):
             year = int(element)
@@ -67,7 +68,7 @@ def parseDate(arr: list) -> datetime.datetime:
             for wd in weekdays :
                 if(re.match(wd, element)):
                     today_date = datetime.date.today()
-                    delta_day =  datetime.today_date.weekday() - weekdays.index(wd)
+                    delta_day =  today_date.weekday() - weekdays.index(wd)
                     if(delta_day >= 0) :
                         day += 7 - delta_day
                     else :
@@ -75,5 +76,6 @@ def parseDate(arr: list) -> datetime.datetime:
 
     return datetime.datetime(year, month, day, hr, min, 0, 0)
 
-x = input("enter date time: ")
-print(parseDate(x.split()).isoformat(" "))
+def requestDate() -> str:
+    x = input("enter date time: ")
+    return(parseDate(x.split()).isoformat(" "))
