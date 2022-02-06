@@ -40,7 +40,7 @@ print('\n')
 
 #TODO
 # do java stuff here
-
+# @james
 
 
 
@@ -55,6 +55,8 @@ print('\n')
 
 # TODO 
 # initialize python calls for chatbot here
+# @ lily
+
 
 
 
