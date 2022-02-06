@@ -1,3 +1,4 @@
+import subprocess
 import account
 import login
 import phone_auth
@@ -41,7 +42,7 @@ print('\n')
 #TODO
 # do java stuff here
 # @james
-
+subprocess.run("java -jar ./todolist.jar")
 
 
 
