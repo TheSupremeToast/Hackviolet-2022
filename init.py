@@ -27,10 +27,10 @@ if input('Do you want to create and account? (Y/n) ') == 'Y':
 print('\n')
 
 # Prompt Login
-login.account_login()
+# login.account_login()
 print('\n')
 # prompt for two factor code
-login.two_factor_check()
+# login.two_factor_check()
 print('\n')
 
 #################################################
@@ -42,7 +42,7 @@ print('\n')
 #TODO
 # do java stuff here
 # @james
-subprocess.run("java -jar ./todolist.jar")
+subprocess.call(['java', '-jar', 'todolist.jar'])
 
 
 

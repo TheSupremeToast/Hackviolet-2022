@@ -17,6 +17,7 @@ load_dotenv()
 # get twilio accound sid and auth token from .env
 account_sid = os.getenv('TWILIO_ACCOUNT_SID')
 auth_token = os.getenv('TWILIO_AUTH_TOKEN')
+phone_number = os.getenv('TWILIO_PHONE_NUMBER')
 
 client = Client(account_sid, auth_token)
     
@@ -55,7 +56,7 @@ def text_code(user_phone):
         message = client.messages.create(
             # send text with verification code
             body= response,
-            from_= '+19034818989',
+            from_= phone_number,
             to= user_phone)
         # print(message.sid)
         
