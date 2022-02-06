@@ -26,8 +26,10 @@
 ---
 
 ## Chatbot Features:  
-1)  
-
+1)  Python implementation; takes user requests and determines desired commands to execute on TODO List
+2)  User input cleanup using nltk stemming and lemmatization
+3)  Robust natural language processing with regex
+4)  Versatile date and time parsing
 
 ---  
 ## Usage Instructions:  
