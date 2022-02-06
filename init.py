@@ -31,6 +31,7 @@ if input('Do you want to create and account? (Y/n) ') == 'Y':
 print('\n')
 
 # Prompt Login
+prnit('User Login: ')
 login.account_login()
 print('\n')
 # prompt for two factor code
@@ -39,6 +40,18 @@ print('\n')
 
 #################################################
 
+#
+# Initialize chatbot functionality here
+#
+
+# Chatbot functions
+# NOTE: nltk must be installed 
+#       if not installed open a python instance in a terminal and run nltk.download()
+import Chatbot_conversation as chatbot
+chatbot.conversation()
+print('\n')
+
+#################################################
 #
 # Run jar file to initialize todo list
 #
@@ -51,17 +64,5 @@ subprocess.call(['java', '-jar', 'todolist.jar'])
 
 #################################################
 
-#
-# Initialize chatbot functionality here
-#
-
-# TODO 
-# initialize python calls for chatbot here
-# @ lily
-import Chatbot_conversation as chatbot
-chatbot.conversation()
-
-
-#################################################
 
 # END FILE
