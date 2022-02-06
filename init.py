@@ -14,7 +14,7 @@ import phone_auth
 
 # account.py functions are called individually
 # login.py functions must be called individually
-# phone_auth.py functions must be called
+# phone_auth.py functions must be called individually
 
 ################################################## 
 
@@ -28,10 +28,10 @@ if input('Do you want to create and account? (Y/n) ') == 'Y':
 print('\n')
 
 # Prompt Login
-# login.account_login()
+login.account_login()
 print('\n')
 # prompt for two factor code
-# login.two_factor_check()
+login.two_factor_check()
 print('\n')
 
 #################################################
@@ -60,6 +60,6 @@ subprocess.call(['java', '-jar', 'todolist.jar'])
 
 
 
+#################################################
 
 # END FILE
-print('0')

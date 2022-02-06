@@ -1,7 +1,6 @@
 package TodoList.src;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -16,6 +15,7 @@ public class Main
     {
         taskList = new TaskList();
         scan = new Scanner(System.in);
+        readJson();
         do
         {
 
@@ -105,8 +105,59 @@ public class Main
 
     public static void toJSON() throws IOException
     {
-        FileWriter fw = new FileWriter("user_data.json");
+        FileWriter fw = new FileWriter("user_list.json");
         fw.append(taskList.toJSONString());
         fw.close();
+    }
+
+    public static void readJson() throws IOException
+    {
+        File file = new File("user_list.json");
+        boolean readData = false;
+        ArrayList<String> arrList = new ArrayList<>();
+        String currString = "";
+        if (file.exists())
+        {
+            FileReader fr = new FileReader(file);
+            while (fr.ready())
+            {
+                char current = (char)fr.read();
+                if (current == '"' && !readData)
+                {
+                    readData = true;
+                }
+                else if (current != '"' && readData)
+                {
+                    currString += current;
+                }
+                else if (current == '"' && readData)
+                {
+                    readData = false;
+                    arrList.add(currString);
+                    currString = "";
+                }
+            }
+            String taskName = "";
+            String taskDate = "";
+            int currentTask = -1;
+            for (int i = 0; i < arrList.size(); i+=2)
+            {
+                if (arrList.get(i).equals("taskName"))
+                {
+                    taskName = arrList.get(i + 1);
+                }
+                else if (arrList.get(i).equals("taskDate"))
+                {
+                    taskDate = arrList.get(i + 1);
+                    String [] taskDates = taskDate.split(" ");
+                    taskList.add(new Task(taskName, new Date(Integer.parseInt(taskDates[0]), Integer.parseInt(taskDates[1]), Integer.parseInt(taskDates[2]))));
+                    currentTask++;
+                }
+                else
+                {
+                    taskList.get(currentTask).addSubtask(new SubTask(arrList.get(i + 1)));
+                }
+            }
+        }
     }
 }
