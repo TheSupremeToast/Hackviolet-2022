@@ -14,8 +14,6 @@
 2) sha256 password encryption  
 3) Sms two-factor authentication system powered by twlio  
 4) sha256 encrypted two-facor authentication code
-   
-5) TODO - encrypt user todo list data  
   
 ---  
 
